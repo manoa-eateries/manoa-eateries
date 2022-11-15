@@ -26,3 +26,12 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+.footer {
+  background-color: rgb(1, 76, 47);
+  color: white;
+}
+
+#footer-link {
+  color: lightgray;
+}
