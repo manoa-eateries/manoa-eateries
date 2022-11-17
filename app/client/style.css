@@ -1,6 +1,7 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
-
+@import url("https://fonts.googleapis.com/css?family=Sacramento");
+@import url("https://fonts.googleapis.com/css?family=Alice");
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #014C2F;
@@ -43,6 +44,27 @@ body {
 }
 
 #landing-text {
+  position: relative;
   padding: 40px;
+  width: 60%;
+  left: 20%;
   color: white;
+}
+
+p {
+  font-size: xx-large;
+  font-family: 'Alice', serif;
+}
+
+h1 {
+  font-family: 'Sacramento', serif;
+  font-size: xxx-large !important;
+  font-weight: bold !important;
+  letter-spacing: 5px;
+}
+
+h3 {
+  font-family: 'Sacramento', serif;
+  font-size: xxx-large !important;
+  font-weight: bold !important;
 }
