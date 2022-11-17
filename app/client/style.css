@@ -3,8 +3,8 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-bg: #014C2F;
+  --matr-navbar-bg-rgb: 1, 76, 47;
 }
 
 /* Change bootstrap variable values.
@@ -34,4 +34,15 @@ body {
 
 #footer-link {
   color: lightgray;
+}
+
+#landing-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("https://manoa.hawaii.edu/dps/wp-content/uploads/sites/27/2020/03/EastWestRd.jpg") center;
+  background-size: cover;
+  height: 800px;
+}
+
+#landing-text {
+  padding: 40px;
+  color: white;
 }
