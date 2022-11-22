@@ -14,7 +14,7 @@ const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
   const schema = new SimpleSchema({
-    email: String,
+    username: String,
     password: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
@@ -22,15 +22,15 @@ const SignIn = () => {
   // Handle Signin submission using Meteor's account mechanism.
   const submit = (doc) => {
     // console.log('submit', doc, redirect);
-    const { email, password } = doc;
-    Meteor.loginWithPassword(email, password, (err) => {
+    const { username, password } = doc;
+    Meteor.loginWithPassword(username, password, (err) => {
       if (err) {
         setError(err.reason);
       } else {
         setRedirect(true);
       }
     });
-    // console.log('submit2', email, password, error, redirect);
+    // console.log('submit2', username, password, error, redirect);
   };
 
   // Render the signin form.

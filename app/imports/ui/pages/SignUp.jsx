@@ -15,15 +15,15 @@ const SignUp = ({ location }) => {
   const [redirectToReferer, setRedirectToRef] = useState(false);
 
   const schema = new SimpleSchema({
-    email: String,
+    username: String,
     password: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { username, password } = doc;
+    Accounts.createUser({ username, username: username, password }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
