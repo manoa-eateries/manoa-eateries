@@ -49,7 +49,7 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
+                <TextField name="username" placeholder="Username" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
@@ -57,7 +57,7 @@ const SignUp = ({ location }) => {
             </Card>
           </AutoForm>
           <Alert variant="light">
-            Already have an account? Login
+            Click here to sign in
             {' '}
             <Link to="/signin">here</Link>
           </Alert>
