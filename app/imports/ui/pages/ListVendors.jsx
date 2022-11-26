@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row, Card } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { VendorProfiles } from '../../api/vendor/vendorProfile';
@@ -30,17 +30,9 @@ const ListVendors = () => {
           <Col className="text-center">
             <h2>List Vendors</h2>
           </Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Logo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vendors.map((vendor) => <VendorCard key={vendor._id} vendor={vendor} />)}
-            </tbody>
-          </Table>
+          <Row>
+            {vendors.map((vendor) => (<Col key={vendor._id}><VendorCard vendor={vendor} /></Col>))}
+          </Row>
         </Col>
       </Row>
     </Container>
