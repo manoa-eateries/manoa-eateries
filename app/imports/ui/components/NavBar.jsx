@@ -19,6 +19,11 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
           <Nav>
+            <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+          <Nav>
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
@@ -40,6 +45,7 @@ const NavBar = () => {
                   out
                 </NavDropdown.Item>
               </NavDropdown>
+
             )}
           </Nav>
         </Navbar.Collapse>
