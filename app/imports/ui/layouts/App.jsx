@@ -5,10 +5,8 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -17,6 +15,9 @@ import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import EditVendor from '../pages/EditVendor';
 import ListVendorProfiles from '../pages/ListVendorProfiles';
+import ListVendors from '../pages/ListVendors';
+import EditUser from '../pages/EditUser';
+import ListUser from '../pages/ListUser';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -29,10 +30,13 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-        <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
+        <Route path="/list" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
+        <Route path="/listVendors" element={<ListVendors />} />
+        <Route path="/list" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
         <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
         <Route path="/editVendor/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
+        <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ListStuffAdmin /></AdminProtectedRoute>} />
         <Route path="/vendoredit" element={<VendorProtectedRoute><EditVendor /></VendorProtectedRoute>} />
         <Route path="/vendorprofiles" element={<VendorProtectedRoute><ListVendorProfiles /></VendorProtectedRoute>} />
