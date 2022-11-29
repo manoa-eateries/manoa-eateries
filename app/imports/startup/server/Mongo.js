@@ -3,7 +3,6 @@ import { Stuffs } from '../../api/stuff/Stuff.js';
 import { VendorProfiles } from '../../api/vendor/vendorProfile';
 import { UserProfiles } from '../../api/user/userProfile';
 
-
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -31,6 +30,16 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
+const addVendors = (vendors) => {
+  console.log(`  Adding: ${vendors.vendorName} (${vendors.owner})`);
+  VendorProfiles.collection.insert(vendors);
+};
+
+// Initialize the StuffsCollection if empty.
+if (VendorProfiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultVendors) {
+    console.log('Creating default vendors.');
+    Meteor.settings.defaultVendors.forEach(vendors => addVendors(vendors));
 // Initialize the VendorProfileCollection if empty.
 if (VendorProfiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultVendors) {
