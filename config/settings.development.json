@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme", "role": "admin" }
   ],
 
   "defaultData": [
@@ -9,6 +9,10 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultUserData": [
+    {"name": "john@foo.com","owner": "john@foo.com", "Asian": true, "American": true, "European": false, "Hawaiian": false, "Hispanic": true, "Omnivore": true, "Vegan": false, "Vegetarian": false, "GlutenFree": true}
   ],
 
   "monti": {
