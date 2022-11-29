@@ -18,10 +18,14 @@ const NavBar = () => {
           <Image src="images/manoa_eateries_green.png" width="100px" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav>
+            <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-vendors-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
@@ -46,9 +50,18 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="account" title="Account">
-                <NavDropdown.Item id="profile" as={NavLink} to="/list">
-                  Profile
-                </NavDropdown.Item>
+                {currentUser ? ([
+                ]) : ''}
+                {Roles.userIsInRole(Meteor.userId(), '') ? (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
+                    Profile
+                  </NavDropdown.Item>
+                ) : ''}
+                {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/vendorprofiles">
+                    Profile
+                  </NavDropdown.Item>
+                ) : ''}
                 <NavDropdown.Item id="signout" as={NavLink} to="/signout">
                   Sign
                   out
