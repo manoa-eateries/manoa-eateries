@@ -5,7 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { UserProfiles } from '../../api/user/userProfile';
 import User from '../components/User';
-import StuffItem from '../components/StuffItem';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListUser = () => {
@@ -39,7 +38,7 @@ const ListUser = () => {
                 <th colSpan="4">Diet</th>
               </tr>
               <tr>
-                <th />
+                <th> </th>
                 <th>Asian</th>
                 <th>American</th>
                 <th>European</th>
