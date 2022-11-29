@@ -51,7 +51,7 @@ const EditVendor = () => {
                 <DateField name="closeHour" />
                 <TextField name="weekdaysOpen" />
                 <TextField name="location" />
-                <h4>Prefrences</h4>
+                <h4>Preferences</h4>
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
