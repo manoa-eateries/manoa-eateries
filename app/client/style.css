@@ -51,10 +51,6 @@ body {
   color: white;
 }
 
-#login-dropdown {
-  color: white;
-}
-
 p {
   font-size: xx-large;
   font-family: 'Alice', serif;
@@ -71,4 +67,8 @@ h3 {
   font-family: 'Sacramento', serif;
   font-size: xxx-large !important;
   font-weight: bold !important;
+}
+
+#login-dropdown, #account {
+  color: white;
 }
