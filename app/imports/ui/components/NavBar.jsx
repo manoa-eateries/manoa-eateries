@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 
 const NavBar = () => {
@@ -18,8 +19,16 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
-          <Nav>
-            <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>
+          <Nav className="me-auto justify-content-start">
+            {currentUser ? ([
+              <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>,
+            ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Nav.Link id="list-vendors-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+              <Nav.Link id="list-vendors-nav" as={NavLink} to="/vendorprofiles" key="vendorprofile">Vendor Profiles</Nav.Link>
+            ) : ''}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">

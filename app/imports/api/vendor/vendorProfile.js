@@ -13,20 +13,22 @@ class VendorProfilesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      owner: String,
       vendorName: String,
+      owner: String,
       logo: String,
       openHour: Date,
       closeHour: Date,
       location: String,
-      weekdaysOpen: {
-        type: String,
-        allowedValues: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      },
-      diets: {
-        type: String,
-        allowedValues: ['Vegetarian', 'Vegan', 'Gluten-Free', 'Carnivore'],
-      },
+      weekdaysOpen: String,
+      Asian: Boolean,
+      American: Boolean,
+      European: Boolean,
+      Hawaiian: Boolean,
+      Hispanic: Boolean,
+      Omnivore: Boolean,
+      Vegan: Boolean,
+      Vegetarian: Boolean,
+      GlutenFree: Boolean,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

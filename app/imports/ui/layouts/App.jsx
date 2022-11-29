@@ -13,6 +13,8 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
+import EditVendor from '../pages/EditVendor';
+import ListVendorProfiles from '../pages/ListVendorProfiles';
 import ListVendors from '../pages/ListVendors';
 import EditUser from '../pages/EditUser';
 import ListUser from '../pages/ListUser';
@@ -33,7 +35,11 @@ const App = () => (
         <Route path="/list" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
         <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
+        <Route path="/editVendor/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
+        <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ListStuffAdmin /></AdminProtectedRoute>} />
+        <Route path="/vendoredit" element={<VendorProtectedRoute><EditVendor /></VendorProtectedRoute>} />
+        <Route path="/vendorprofiles" element={<VendorProtectedRoute><ListVendorProfiles /></VendorProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -66,6 +72,14 @@ const AdminProtectedRoute = ({ children }) => {
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
+const VendorProtectedRoute = ({ children }) => {
+  const isLogged = Meteor.userId() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), 'vendor');
+  return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
+};
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -81,6 +95,14 @@ AdminProtectedRoute.propTypes = {
 };
 
 AdminProtectedRoute.defaultProps = {
+  children: <Landing />,
+};
+
+VendorProtectedRoute.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+VendorProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 

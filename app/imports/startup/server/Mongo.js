@@ -3,7 +3,6 @@ import { Stuffs } from '../../api/stuff/Stuff.js';
 import { VendorProfiles } from '../../api/vendor/vendorProfile';
 import { UserProfiles } from '../../api/user/userProfile';
 
-
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -12,10 +11,9 @@ const addData = (data) => {
   Stuffs.collection.insert(data);
 };
 
-const addVendor = (data) =>
-{
-  console.log(`  Adding: ${data.name}`);
-  VendorProfiles.collection.insert(data);
+const addVendor = (vendor) => {
+  console.log(`  Adding: ${vendor.vendorName}`);
+  VendorProfiles.collection.insert(vendor);
 };
 
 const addUserData = (data) => {
