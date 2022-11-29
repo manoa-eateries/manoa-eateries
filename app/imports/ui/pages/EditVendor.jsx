@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, BoolField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, BoolField, SubmitField, TextField, DateField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -32,8 +32,8 @@ const EditVendor = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { owner, vendorName, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
-    VendorProfiles.collection.update(_id, { $set: { owner, vendorName, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } }, (error) => (error ?
+    const { owner, vendorName, openHour, closeHour, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
+    VendorProfiles.collection.update(_id, { $set: { owner, vendorName, openHour, closeHour, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -47,7 +47,10 @@ const EditVendor = () => {
               <Card.Body>
                 <TextField name="vendorName" />
                 <LongTextField name="logo" />
-                <
+                <DateField name="openHour" />
+                <DateField name="closeHour" />
+                <TextField name="weekdaysOpen" />
+                <TextField name="location" />
                 <h4>Prefrences</h4>
                 <Row>
                   <Col>

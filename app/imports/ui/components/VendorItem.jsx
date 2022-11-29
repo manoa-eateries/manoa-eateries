@@ -8,8 +8,7 @@ const VendorItem = ({ vendor }) => (
   <tr>
     <td>{vendor.vendorName}</td>
     <td><Image src={vendor.logo} width="25px" /></td>
-    <td>{vendor.Asian}</td>
-    <td>{vendor.American}</td>
+    <td>{vendor.weekdaysOpen}</td>
     <td>
       <Link to={`/editVendor/${vendor._id}`}>Edit</Link>
     </td>
@@ -21,8 +20,7 @@ VendorItem.propTypes = {
   vendor: PropTypes.shape({
     vendorName: PropTypes.string,
     logo: PropTypes.string,
-    Asian: PropTypes.bool,
-    American: PropTypes.bool,
+    weekdaysOpen: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };

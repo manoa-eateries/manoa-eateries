@@ -35,8 +35,7 @@ const ListVendorProfiles = () => {
               <tr>
                 <th>Vendor Name</th>
                 <th>Logo</th>
-                <th>Asian</th>
-                <th>American</th>
+                <th>Open Days</th>
               </tr>
             </thead>
             <tbody>
