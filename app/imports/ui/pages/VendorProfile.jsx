@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
-import { VendorProfiles } from '../../api/stuff/Stuff';
+import { VendorProfiles } from '../../api/vendor/vendorProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(VendorProfiles.schema);
@@ -32,12 +32,11 @@ const EditStuff = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, quantity, condition } = data;
-    VendorProfiles.collection.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
+    const { owner, vendorName, logo, openHour, closeHour, location, weekdaysOpen, diets } = data;
+    VendorProfiles.collection.update(_id, { $set: { owner, vendorName, logo, openHour, closeHour, location, weekdaysOpen, diets } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
-
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
@@ -46,10 +45,12 @@ const EditStuff = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
-                <SubmitField value="Submit" />
+                <TextField name="owner" />
+                <TextField name="vendorName" />
+                <TextField name="logo" />
+                <NumField name="closeHour" />
+                <SelectField name="diets" />
+                <SubmitField value="diets" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>
