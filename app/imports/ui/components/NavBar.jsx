@@ -32,7 +32,7 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="account" title="Account">
-                <NavDropdown.Item id="profile" as={NavLink} to="/edit/:_id">
+                <NavDropdown.Item id="profile" as={NavLink} to="/list">
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id="signout" as={NavLink} to="/signout">

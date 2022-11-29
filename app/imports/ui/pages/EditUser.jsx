@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, BoolField, ErrorsField, HiddenField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, BoolField, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -48,17 +48,24 @@ const EditUser = () => {
               <Card.Body>
                 <TextField name="name" label="Username" />
                 <h4>Preferences</h4>
-                <h6>Ethnicity</h6>
-                <BoolField name="Asian" />
-                <BoolField name="American" />
-                <BoolField name="European" />
-                <BoolField name="Hawaiian" />
-                <BoolField name="Hispanic" />
-                <h6>Diet</h6>
-                <BoolField name="Omnivore" />
-                <BoolField name="Vegan" />
-                <BoolField name="Vegetarian" />
-                <BoolField name="GlutenFree" />
+                <Row>
+                  <Col>
+                    <h6>Ethnicity</h6>
+                    <BoolField name="Asian" />
+                    <BoolField name="American" />
+                    <BoolField name="European" />
+                    <BoolField name="Hawaiian" />
+                    <BoolField name="Hispanic" />
+                  </Col>
+                  <Col>
+                    <h6>Diet</h6>
+                    <BoolField name="Omnivore" />
+                    <BoolField name="Vegan" />
+                    <BoolField name="Vegetarian" />
+                    <BoolField name="GlutenFree" />
+                  </Col>
+                </Row>
+                <SubmitField />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>
