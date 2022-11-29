@@ -14,10 +14,10 @@ class UserDietsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       owner: String,
-      diets: {
-        type: String,
-        allowedValues: ['Vegetarian', 'Vegan', 'Gluten-Free', 'Carnivore'],
-      },
+      Omnivore: Boolean,
+      Vegan: Boolean,
+      Vegetarian: Boolean,
+      GlutenFree: Boolean,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
