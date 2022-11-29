@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Image, Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
