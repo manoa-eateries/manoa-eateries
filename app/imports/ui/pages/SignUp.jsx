@@ -23,7 +23,7 @@ const SignUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { username, password } = doc;
-    Accounts.createUser({ username, username: username, password }, (err) => {
+    Accounts.createUser({ username, password }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -46,8 +46,8 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                  <TextField name="username" placeholder="Username" />
-                  <TextField name="password" placeholder="Password" type="password" />
+                <TextField name="username" placeholder="Username" />
+                <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
