@@ -11,10 +11,9 @@ const addData = (data) => {
   Stuffs.collection.insert(data);
 };
 
-const addVendor = (data) =>
-{
-  console.log(`  Adding: ${data.name}`);
-  VendorProfiles.collection.insert(data);
+const addVendor = (vendor) => {
+  console.log(`  Adding: ${vendor.vendorName}`);
+  VendorProfiles.collection.insert(vendor);
 };
 
 const addUserData = (data) => {
@@ -30,16 +29,6 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-const addVendors = (vendors) => {
-  console.log(`  Adding: ${vendors.vendorName} (${vendors.owner})`);
-  VendorProfiles.collection.insert(vendors);
-};
-
-// Initialize the StuffsCollection if empty.
-if (VendorProfiles.collection.find().count() === 0) {
-  if (Meteor.settings.defaultVendors) {
-    console.log('Creating default vendors.');
-    Meteor.settings.defaultVendors.forEach(vendors => addVendors(vendors));
 // Initialize the VendorProfileCollection if empty.
 if (VendorProfiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultVendors) {
