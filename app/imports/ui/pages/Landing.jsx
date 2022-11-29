@@ -7,7 +7,7 @@ const Landing = () => (
     <Row id="landing-text" className="align-middle text-center">
       <Container className="px-5">
         <h1>Manoa Eateries</h1>
-        <p>Manoa Eateries gives students the opportunity to see what is available to eat on campus.  Users can view various food options based on their preferences, and vendors can update their menu items and operating house.</p>
+        <p>Manoa Eateries gives students the opportunity to see what is available to eat on campus. Users can view various food options based on their preferences, and vendors can update their menu items and operating hours.</p>
       </Container>
     </Row>
   </Container>
