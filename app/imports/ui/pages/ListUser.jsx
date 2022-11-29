@@ -27,7 +27,7 @@ const ListUser = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col md={12}>
           <Col className="text-center">
             <h2>Profile Info</h2>
           </Col>
@@ -35,6 +35,11 @@ const ListUser = () => {
             <thead>
               <tr>
                 <th>Name</th>
+                <th colSpan="5">Ethnicity</th>
+                <th colSpan="4">Diet</th>
+              </tr>
+              <tr>
+                <th />
                 <th>Asian</th>
                 <th>American</th>
                 <th>European</th>

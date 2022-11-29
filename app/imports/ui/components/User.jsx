@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 const User = ({ user }) => (
   <tr>
     <td>{user.name}</td>
-    <td>{user.Asian}</td>
-    <td>{user.American}</td>
-    <td>{user.European}</td>
-    <td>{user.Hawaiian}</td>
-    <td>{user.Hispanic}</td>
-    <td>{user.Omnivore}</td>
-    <td>{user.Vegan}</td>
-    <td>{user.Vegetarian}</td>
-    <td>{user.GlutenFree}</td>
+    <td>{user.Asian.toString()}</td>
+    <td>{user.American.toString()}</td>
+    <td>{user.European.toString()}</td>
+    <td>{user.Hawaiian.toString()}</td>
+    <td>{user.Hispanic.toString()}</td>
+    <td>{user.Omnivore.toString()}</td>
+    <td>{user.Vegan.toString()}</td>
+    <td>{user.Vegetarian.toString()}</td>
+    <td>{user.GlutenFree.toString()}</td>
     <td>
       <Link to={`/edit/${user._id}`}>Edit</Link>
     </td>
