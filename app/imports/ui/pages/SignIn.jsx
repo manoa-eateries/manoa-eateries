@@ -41,33 +41,33 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-username" name="username" placeholder="Username" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to register</Link>
-          </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
+      <Container id="signin-page" className="py-3">
+        <Row className="justify-content-center">
+          <Col xs={5}>
+            <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+              <Card>
+                <Card.Body>
+                  <TextField id="signin-form-username" name="username" placeholder="Username" />
+                  <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
+                  <ErrorsField />
+                  <SubmitField id="signin-form-submit" />
+                </Card.Body>
+              </Card>
+            </AutoForm>
+            <Alert variant="light">
+              <Link to="/signup">Click here to register</Link>
             </Alert>
-          )}
-        </Col>
-      </Row>
-    </Container>
+            {error === '' ? (
+                ''
+            ) : (
+                <Alert variant="danger">
+                  <Alert.Heading>Login was not successful</Alert.Heading>
+                  {error}
+                </Alert>
+            )}
+          </Col>
+        </Row>
+      </Container>
   );
 };
 
