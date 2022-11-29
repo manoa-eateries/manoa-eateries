@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, BoolField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -12,7 +12,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const bridge = new SimpleSchema2Bridge(VendorProfiles.schema);
 
 /* Renders the EditStuff page for editing a single document. */
-const EditStuff = () => {
+const EditVendor = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
   // console.log('EditStuff', _id);
@@ -32,8 +32,8 @@ const EditStuff = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { owner, vendorName, logo, openHour, closeHour, location, weekdaysOpen, diets } = data;
-    VendorProfiles.collection.update(_id, { $set: { owner, vendorName, logo, openHour, closeHour, location, weekdaysOpen, diets } }, (error) => (error ?
+    const { owner, vendorName, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
+    VendorProfiles.collection.update(_id, { $set: { owner, vendorName, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -45,12 +45,28 @@ const EditStuff = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
-                <TextField name="owner" />
                 <TextField name="vendorName" />
-                <TextField name="logo" />
-                <NumField name="closeHour" />
-                <SelectField name="diets" />
-                <SubmitField value="diets" />
+                <LongTextField name="logo" />
+                <
+                <h4>Prefrences</h4>
+                <Row>
+                  <Col>
+                    <h6>Ethnicity</h6>
+                    <BoolField name="Asian" />
+                    <BoolField name="American" />
+                    <BoolField name="European" />
+                    <BoolField name="Hawaiian" />
+                    <BoolField name="Hispanic" />
+                  </Col>
+                  <Col>
+                    <h6>Diet</h6>
+                    <BoolField name="Omnivore" />
+                    <BoolField name="Vegan" />
+                    <BoolField name="Vegetarian" />
+                    <BoolField name="GlutenFree" />
+                  </Col>
+                </Row>
+                <SubmitField name="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>
@@ -62,4 +78,4 @@ const EditStuff = () => {
   ) : <LoadingSpinner />;
 };
 
-export default EditStuff;
+export default EditVendor;

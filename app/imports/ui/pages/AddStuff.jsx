@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { VendorProfiles } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../api/stuff/Stuff';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -27,7 +27,7 @@ const AddStuff = () => {
   const submit = (data, formRef) => {
     const { name, quantity, condition } = data;
     const owner = Meteor.user().username;
-    VendorProfiles.collection.insert(
+    Stuffs.collection.insert(
       { name, quantity, condition, owner },
       (error) => {
         if (error) {

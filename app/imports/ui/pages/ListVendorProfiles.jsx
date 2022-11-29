@@ -2,24 +2,24 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { VendorProfiles } from '../../api/vendor/vendorProfile';
+import VendorItem from '../components/VendorItem';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListStuff = () => {
+const ListVendorProfiles = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
+  const { ready, vendors } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(VendorProfiles.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const vendorItems = VendorProfiles.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      vendors: vendorItems,
       ready: rdy,
     };
   }, []);
@@ -28,19 +28,19 @@ const ListStuff = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Stuff</h2>
+            <h2>Vendor Profiles</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Edit</th>
+                <th>Vendor Name</th>
+                <th>Logo</th>
+                <th>Asian</th>
+                <th>American</th>
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {vendors.map((vendor) => <VendorItem key={vendor._id} vendor={vendor} />)}
             </tbody>
           </Table>
         </Col>
@@ -49,4 +49,4 @@ const ListStuff = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListStuff;
+export default ListVendorProfiles;

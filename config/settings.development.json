@@ -2,7 +2,7 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email":  "Dunkin", "password": "changeme", "role":  "vendor" }
+    { "email":  "dunkin", "password": "changeme", "role":  "vendor" }
   ],
 
   "defaultData": [
@@ -18,7 +18,7 @@
   },
 
   "defaultVendors": [
-    {"owner": "Dunkin Donuts", "vendorName": "Dunkin Donuts", "logo": "https://prnewswire2-a.akamaihd.net/p/1893751/sp/189375100/thumbnail/entry_id/0_xcfd6lul/def_height/2700/def_width/2700/version/100012/type/1", "openHour": "2022-04-28T08:00:00Z", "closeHour": "2022-04-28T14:00:00Z", "location": "Paradise Palms", "weekdaysOpen": "Monday", "diets": "Vegan" },
-    {"owner": "Panda Express", "vendorName": "Panda Express", "logo": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/8217/brand.gif?itok=nKwfh7NR", "openHour": "2022-04-28T10:30:00Z", "closeHour": "2022-04-28T16:30:00Z", "location": "Paradise Palms", "weekdaysOpen": "Monday", "diets": "Carnivore" }
+    {"owner": "dunkin", "vendorName": "Dunkin Donuts", "logo": "https://prnewswire2-a.akamaihd.net/p/1893751/sp/189375100/thumbnail/entry_id/0_xcfd6lul/def_height/2700/def_width/2700/version/100012/type/1", "openHour": "2022-04-28T08:00:00Z", "closeHour": "2022-04-28T14:00:00Z", "location": "Paradise Palms", "weekdaysOpen": "Monday", "Asian": "false" , "American": "true", "European": "false", "Hawaiian": "false", "Hispanic": "false", "Omnivore": "false", "Vegan": "false", "Vegetarian": "false", "GlutenFree": "false" },
+    {"owner": "Panda Express", "vendorName": "Panda Express", "logo": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0010/8217/brand.gif?itok=nKwfh7NR", "openHour": "2022-04-28T10:30:00Z", "closeHour": "2022-04-28T16:30:00Z", "location": "Paradise Palms", "weekdaysOpen": "Monday", "Asian": "false", "American": "true", "European": "false", "Hawaiian": "false", "Hispanic": "false", "Omnivore": "false", "Vegan": "false", "Vegetarian": "false", "GlutenFree": "false" }
   ]
 }
