@@ -28,10 +28,10 @@ const NavBar = () => {
             {currentUser ? ([
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-vendors-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              ''
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-              <Nav.Link id="list-vendors-nav" as={NavLink} to="/vendorprofiles" key="vendorprofile">Vendor Profiles</Nav.Link>
+              ''
             ) : ''}
           </Nav>
         </Navbar.Collapse>
