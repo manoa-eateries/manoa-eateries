@@ -56,7 +56,11 @@ const NavBar = () => {
                   <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
                     Profile
                   </NavDropdown.Item>
-                ) : ''}
+                ) : (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
+                    Profile
+                  </NavDropdown.Item>
+                )}
                 {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
                   <NavDropdown.Item id="profile" as={NavLink} to="/vendorprofiles">
                     Profile
