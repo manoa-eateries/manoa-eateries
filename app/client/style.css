@@ -51,6 +51,18 @@ body {
   color: white;
 }
 
+#signin-page {
+  background: url("images/manoa_logo.png") center;
+  background-size: auto;
+  height: 500px;
+}
+
+#signup-page {
+  background: url("images/manoa_logo.png") center;
+  background-size: auto;
+  height: 500px;
+}
+
 p {
   font-size: xx-large;
   font-family: 'Alice', serif;
