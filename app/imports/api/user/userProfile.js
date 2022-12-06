@@ -16,14 +16,15 @@ class UserProfilesCollection {
     this.schema = new SimpleSchema({
       name: String,
       owner: String,
-      preferredFoods: {
-        type: String,
-        allowedValues: ['pizza', 'bento', 'fries', 'burger'],
-      },
-      diets: {
-        type: String,
-        allowedValues: ['Vegetarian', 'Vegan', 'Gluten-Free', 'Carnivore'],
-      },
+      Asian: Boolean,
+      American: Boolean,
+      European: Boolean,
+      Hawaiian: Boolean,
+      Hispanic: Boolean,
+      Omnivore: Boolean,
+      Vegan: Boolean,
+      Vegetarian: Boolean,
+      GlutenFree: Boolean,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

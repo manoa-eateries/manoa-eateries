@@ -15,15 +15,15 @@ const SignUp = ({ location }) => {
   const [redirectToReferer, setRedirectToRef] = useState(false);
 
   const schema = new SimpleSchema({
-    email: String,
+    username: String,
     password: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { username, password } = doc;
+    Accounts.createUser({ username, password }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -43,13 +43,10 @@ const SignUp = ({ location }) => {
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
-          </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
+                <TextField name="username" placeholder="Username" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
@@ -57,9 +54,7 @@ const SignUp = ({ location }) => {
             </Card>
           </AutoForm>
           <Alert variant="light">
-            Already have an account? Login
-            {' '}
-            <Link to="/signin">here</Link>
+            <Link to="/signin">Click here to sign in</Link>
           </Alert>
           {error === '' ? (
             ''
