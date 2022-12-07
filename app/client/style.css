@@ -52,16 +52,19 @@ body {
 }
 
 #signin-page {
-  background: url("images/manoa_logo.png") center;
+  background: url("images/manoa_logo.png") center ;
+  background-repeat: no-repeat;
   background-size: auto;
   height: 500px;
 }
 
 #signup-page {
-  background: url("images/manoa_logo.png") center;
+  background: url("images/manoa_logo.png") center ;
+  background-repeat: no-repeat;
   background-size: auto;
   height: 500px;
 }
+
 
 p {
   font-size: xx-large;
