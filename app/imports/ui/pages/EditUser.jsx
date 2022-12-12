@@ -71,7 +71,7 @@ const EditUser = () => {
                 <HiddenField name="owner" />
               </Card.Body>
               <Card.Footer>
-                <Link to="/list">Back to Profile Info</Link>
+                <Link to="/listUser">Back to Profile Info</Link>
               </Card.Footer>
             </Card>
           </AutoForm>
