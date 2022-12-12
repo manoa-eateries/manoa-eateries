@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -18,6 +17,7 @@ import ListVendorProfiles from '../pages/ListVendorProfiles';
 import ListVendors from '../pages/ListVendors';
 import EditUser from '../pages/EditUser';
 import ListUser from '../pages/ListUser';
+import AddUser from '../pages/AddUser';
 import AddVendor from '../pages/AddVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -31,12 +31,10 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-        <Route path="/list" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
         <Route path="/listVendors" element={<ListVendors />} />
+        <Route path="/addUser" element={<ProtectedRoute><AddUser /></ProtectedRoute>} />
         <Route path="/listUser" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
-        <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
         <Route path="/addVendor" element={<ProtectedRoute><AddVendor /></ProtectedRoute>} />
-        <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
         <Route path="/editVendor/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ListStuffAdmin /></AdminProtectedRoute>} />
