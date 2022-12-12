@@ -16,7 +16,7 @@ const User = ({ user }) => (
     <td>{user.Vegetarian.toString()}</td>
     <td>{user.GlutenFree.toString()}</td>
     <td>
-      <Link to={`/edit/${user._id}`}>Edit</Link>
+      <Link id="edit" to={`/edit/${user._id}`}>Edit</Link>
     </td>
   </tr>
 );

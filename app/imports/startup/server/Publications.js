@@ -39,10 +39,7 @@ Meteor.publish(VendorProfiles.userPublicationName, function () {
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(VendorProfiles.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return VendorProfiles.collection.find();
-  }
-  return this.ready();
+  return VendorProfiles.collection.find();
 });
 
 Meteor.publish(Vendors.adminPublicationName, function () {

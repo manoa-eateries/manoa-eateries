@@ -40,7 +40,7 @@ const EditUser = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="edit-profile-page">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit User</h2></Col>
@@ -51,21 +51,21 @@ const EditUser = () => {
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
-                    <BoolField name="Asian" />
-                    <BoolField name="American" />
-                    <BoolField name="European" />
-                    <BoolField name="Hawaiian" />
-                    <BoolField name="Hispanic" />
+                    <BoolField name="Asian" id="asian" />
+                    <BoolField name="American" id="american" />
+                    <BoolField name="European" id="european" />
+                    <BoolField name="Hawaiian" id="hawaiian" />
+                    <BoolField name="Hispanic" id="hispanic" />
                   </Col>
                   <Col>
                     <h6>Diet</h6>
-                    <BoolField name="Omnivore" />
-                    <BoolField name="Vegan" />
-                    <BoolField name="Vegetarian" />
-                    <BoolField name="GlutenFree" />
+                    <BoolField name="Omnivore" id="omnivore" />
+                    <BoolField name="Vegan" id="vegan" />
+                    <BoolField name="Vegetarian" id="vegetarian" />
+                    <BoolField name="GlutenFree" id="glutenfree" />
                   </Col>
                 </Row>
-                <SubmitField />
+                <SubmitField id="submit" />
                 <ErrorsField />
                 <HiddenField name="name" />
                 <HiddenField name="owner" />
