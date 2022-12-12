@@ -1,16 +1,16 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, BoolField, DateField, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, BoolField, DateField, ErrorsField, LongTextField, RadioField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Link } from 'react-router-dom';
+import { VendorProfiles } from '../../api/vendor/vendorProfile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   vendorName: String,
-  owner: String,
   logo: String,
   openHour: Date,
   closeHour: Date,
@@ -34,10 +34,10 @@ const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { vendorName, openHour, closeHour, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
+    const { vendorName, logo, openHour, closeHour, location, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert(
-      { vendorName, openHour, closeHour, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree, owner },
+    VendorProfiles.collection.insert(
+      { vendorName, logo, openHour, closeHour, location, weekdaysOpen, Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -69,23 +69,23 @@ const AddVendor = () => {
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
-                    <BoolField name="Asian" />
-                    <BoolField name="American" />
-                    <BoolField name="European" />
-                    <BoolField name="Hawaiian" />
-                    <BoolField name="Hispanic" />
+                    <RadioField name="Asian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="American" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="European" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Hawaiian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Hispanic" allowedValues={[true.toString(), false.toString()]} />
                   </Col>
                   <Col>
-                    <h6>Diet</h6>
-                    <BoolField name="Omnivore" />
-                    <BoolField name="Vegan" />
-                    <BoolField name="Vegetarian" />
-                    <BoolField name="GlutenFree" />
+                    <h6>Diet</h6><RadioField name="Omnivore" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Vegan" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Vegetarian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="GlutenFree" allowedValues={[true.toString(), false.toString()]} />
                   </Col>
                 </Row>
                 <SubmitField name="Submit" />
                 <ErrorsField />
               </Card.Body>
+              <Link to="/vendorprofiles">Back to Profile Info</Link>
             </Card>
           </AutoForm>
         </Col>
