@@ -18,6 +18,7 @@ import ListVendorProfiles from '../pages/ListVendorProfiles';
 import ListVendors from '../pages/ListVendors';
 import EditUser from '../pages/EditUser';
 import ListUser from '../pages/ListUser';
+import AddVendor from '../pages/AddVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -34,6 +35,7 @@ const App = () => (
         <Route path="/listVendors" element={<ListVendors />} />
         <Route path="/listUser" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />
         <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
+        <Route path="/addVendor" element={<ProtectedRoute><AddVendor /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
         <Route path="/editVendor/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditUser /></ProtectedRoute>} />
