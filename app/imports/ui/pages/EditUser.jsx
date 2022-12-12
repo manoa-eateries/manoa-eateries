@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { UserProfiles } from '../../api/user/userProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -69,6 +70,9 @@ const EditUser = () => {
                 <HiddenField name="name" />
                 <HiddenField name="owner" />
               </Card.Body>
+              <Card.Footer>
+                <Link to="/list">Back to Profile Info</Link>
+              </Card.Footer>
             </Card>
           </AutoForm>
         </Col>

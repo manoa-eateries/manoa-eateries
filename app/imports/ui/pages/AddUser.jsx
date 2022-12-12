@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, BoolField, ErrorsField, SubmitField, RadioField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, RadioField, SubmitField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -56,18 +56,18 @@ const AddUser = () => {
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
-                    <RadioField allowedValues={[true, false]} inputClassName={['Yes', 'No']} name="Asian" />
-                    <BoolField name="American" />
-                    <BoolField name="European" />
-                    <BoolField name="Hawaiian" />
-                    <BoolField name="Hispanic" />
+                    <RadioField name="Asian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="American" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="European" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Hawaiian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Hispanic" allowedValues={[true.toString(), false.toString()]} />
                   </Col>
                   <Col>
                     <h6>Diet</h6>
-                    <BoolField name="Omnivore" />
-                    <BoolField name="Vegan" />
-                    <BoolField name="Vegetarian" />
-                    <BoolField name="GlutenFree" />
+                    <RadioField name="Omnivore" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Vegan" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="Vegetarian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField name="GlutenFree" allowedValues={[true.toString(), false.toString()]} />
                   </Col>
                 </Row>
                 <SubmitField />
