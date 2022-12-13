@@ -28,7 +28,7 @@ const ListVendors = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Vendors</h2>
+            <h2>All Participating Vendors</h2>
           </Col>
           <Row>
             {vendors.map((vendor) => (<Col key={vendor._id}><VendorCard vendor={vendor} /></Col>))}

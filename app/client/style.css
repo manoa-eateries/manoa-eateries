@@ -40,7 +40,7 @@ body {
 #landing-page {
   background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("https://manoa.hawaii.edu/dps/wp-content/uploads/sites/27/2020/03/EastWestRd.jpg") center;
   background-size: cover;
-  height: 500px;
+  font-size: medium;
 }
 
 #landing-text {
@@ -71,4 +71,8 @@ h3 {
 
 #login-dropdown, #account, #list-vendors-nav {
   color: white;
+}
+
+.landing-img {
+  height: 100px;
 }
