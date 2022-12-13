@@ -16,8 +16,8 @@ class VendorProfilesCollection {
       owner: String,
       vendorName: String,
       logo: String,
-      openHour: Date,
-      closeHour: Date,
+      openHour: Number,
+      closeHour: Number,
       location: String,
       weekdaysOpen: {
         type: String,
