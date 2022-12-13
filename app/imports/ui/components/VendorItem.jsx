@@ -10,7 +10,7 @@ const VendorItem = ({ vendor }) => (
     <td><Image src={vendor.logo} width="25px" /></td>
     <td>{vendor.weekdaysOpen}</td>
     <td>
-      <Link to={`/editVendor/${vendor._id}`}>Edit</Link>
+      <Link id="edit" to={`/editVendor/${vendor._id}`}>Edit</Link>
     </td>
   </tr>
 );

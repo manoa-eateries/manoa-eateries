@@ -33,11 +33,10 @@ class NavBar {
   async gotoSignUpPage(testController) {
     await this.ensureLogout(testController);
     const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
+    if (visible) {
+      await testController.click('#login-dropdown');
+      await testController.click('#login-dropdown-sign-up');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-up');
   }
 
   /** Go to List All Vendors Page */
@@ -48,11 +47,25 @@ class NavBar {
     }
   }
 
+  async gotoListAdmin(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (visible) {
+      await testController.click('#list-admin');
+    }
+  }
+
   async gotoProfile(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
     if (visible) {
       await testController.click('#account');
       await testController.click('#profile');
+    }
+  }
+
+  async gotoOpenNow(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (visible) {
+      await testController.click('#user-home-nav');
     }
   }
 }

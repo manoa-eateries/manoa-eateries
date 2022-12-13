@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class ListProfilePage {
+class ListVendorProfilePage {
   constructor() {
-    this.pageId = '#list-user-page';
+    this.pageId = '#list-vendor-profiles-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -18,4 +18,4 @@ class ListProfilePage {
   }
 }
 
-export const listProfilePage = new ListProfilePage();
+export const listVendorProfilePage = new ListVendorProfilePage();

@@ -61,7 +61,7 @@ const AddUser = () => {
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
-                    <RadioField name="Asian" allowedValues={[true.toString(), false.toString()]} />
+                    <RadioField id="asian" name="Asian" allowedValues={[true.toString(), false.toString()]} />
                     <RadioField name="American" allowedValues={[true.toString(), false.toString()]} />
                     <RadioField name="European" allowedValues={[true.toString(), false.toString()]} />
                     <RadioField name="Hawaiian" allowedValues={[true.toString(), false.toString()]} />
@@ -75,7 +75,7 @@ const AddUser = () => {
                     <RadioField name="GlutenFree" allowedValues={[true.toString(), false.toString()]} />
                   </Col>
                 </Row>
-                <SubmitField />
+                <SubmitField id="submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>

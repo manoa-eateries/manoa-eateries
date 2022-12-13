@@ -29,7 +29,7 @@ const ListStuffAdmin = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3" id="list-vendor-profiles-page">
+    <Container className="py-3" id="list-admin-page">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
