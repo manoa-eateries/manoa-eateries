@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Row, Col } from 'react-bootstrap';
+import { Container, Image, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /* A simple static component to render some text for the landing page. */
@@ -19,6 +19,14 @@ const Landing = () => (
           </Col>
           <Col><Image className="landing-img pb-3" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/640px-Starbucks_Corporation_Logo_2011.svg.png" /> </Col>
           <Col><Image className="landing-img pb-3" src="https://www.jamba.com/-/media/jamba/site-logos/jamba-logo.jpg?v=1&d=20190608T213113Z" /> </Col>
+        </Row>
+        <Row className="pt-3">
+          <Col>
+            <Button href="/signin" className="btn btn-lg btn-block" id="btn-signin">Sign In</Button>
+          </Col>
+          <Col>
+            <Button href="/signup" className="btn btn-lg btn-block" id="btn-signup">Sign Up</Button>
+          </Col>
         </Row>
       </Container>
     </Row>

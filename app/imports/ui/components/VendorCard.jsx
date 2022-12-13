@@ -6,7 +6,7 @@ import { Image, Card } from 'react-bootstrap';
 const VendorCard = ({ vendor }) => (
   <Card className="h-100">
     <Card.Header>
-      <Image src={vendor.logo} width={200} />
+      <Image src={vendor.logo} height="100px" />
       <Card.Title>{vendor.vendorName}</Card.Title>
     </Card.Header>
   </Card>

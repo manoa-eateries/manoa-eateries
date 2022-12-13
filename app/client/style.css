@@ -81,3 +81,9 @@ h3 {
   text-decoration: none;
   color: white;
 }
+
+#btn-signin, #btn-signup {
+  font-family: 'Alice', serif;
+  background-color: #014C2F;
+  border-color: #014C2F;
+}
