@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 
 const NavBar = () => {
@@ -17,9 +18,21 @@ const NavBar = () => {
           <Image src="images/manoa_eateries_green.png" width="100px" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+          <Nav className="me-auto justify-content-start">
+            {currentUser ? ([
+            ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              ''
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+              ''
+            ) : ''}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
@@ -37,9 +50,22 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="account" title="Account">
-                <NavDropdown.Item id="profile" as={NavLink} to="/Profile">
-                  Profile
-                </NavDropdown.Item>
+                {currentUser ? ([
+                ]) : ''}
+                {Roles.userIsInRole(Meteor.userId(), '') ? (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
+                    Profile
+                  </NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
+                    Profile
+                  </NavDropdown.Item>
+                )}
+                {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/vendorprofiles">
+                    Profile
+                  </NavDropdown.Item>
+                ) : ''}
                 <NavDropdown.Item id="signout" as={NavLink} to="/signout">
                   Sign
                   out

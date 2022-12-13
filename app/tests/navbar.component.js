@@ -14,32 +14,19 @@ class NavBar {
   async gotoSignInPage(testController) {
     await this.ensureLogout(testController);
     const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
+    if (visible) {
+      await testController.click('#login-dropdown');
+      await testController.click('#login-dropdown-sign-in');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-in');
-  }
-
-  /** Check that the specified user is currently logged in. */
-  async isLoggedIn(testController, username) {
-    const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    const loggedInUser = Selector('#navbar-current-user').innerText;
-    await testController.expect(loggedInUser).eql(username);
   }
 
   /** Check that someone is logged in, then click items to logout. */
   async logout(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
+    if (visible) {
+      await testController.click('#account');
+      await testController.click('#signout');
     }
-    await testController.expect(Selector('#navbar-current-user').exists).ok();
-    await testController.click('#navbar-current-user');
-    await testController.click('#navbar-sign-out');
   }
 
   /** Pull down login menu, go to sign up page. */
@@ -51,6 +38,22 @@ class NavBar {
     }
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
+  }
+
+  /** Go to List All Vendors Page */
+  async gotoListAllVendors(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (visible) {
+      await testController.click('#list-vendors-nav');
+    }
+  }
+
+  async gotoProfile(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (visible) {
+      await testController.click('#account');
+      await testController.click('#profile');
+    }
   }
 }
 
