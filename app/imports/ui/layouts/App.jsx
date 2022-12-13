@@ -19,6 +19,7 @@ import EditUser from '../pages/EditUser';
 import ListUser from '../pages/ListUser';
 import AddUser from '../pages/AddUser';
 import AddVendor from '../pages/AddVendor';
+import UserHome from '../pages/UserHome';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -31,6 +32,7 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
+        <Route path="/userHome" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
         <Route path="/listVendors" element={<ListVendors />} />
         <Route path="/addUser" element={<ProtectedRoute><AddUser /></ProtectedRoute>} />
         <Route path="/listUser" element={<ProtectedRoute><ListUser /></ProtectedRoute>} />

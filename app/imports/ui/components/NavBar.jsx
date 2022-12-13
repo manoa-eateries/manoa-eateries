@@ -25,8 +25,11 @@ const NavBar = () => {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-            ]) : ''}
+            {currentUser ? (
+              <Nav.Link id="user-home-nav" as={NavLink} to="/userHome" key="user-home">
+                Open Now!
+              </Nav.Link>
+            ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               ''
             ) : ''}
