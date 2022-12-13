@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, RadioField, SubmitField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { UserProfiles } from '../../api/user/userProfile';
+import { Navigate } from 'react-router-dom';
 
 const formSchema = new SimpleSchema({
   Asian: Boolean,
@@ -23,7 +24,10 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
 const AddUser = () => {
-
+  const [redirect, setRedirect] = useState(false);
+  if (redirect) {
+    return (<Navigate to="/" />);
+  }
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { Asian, American, European, Hawaiian, Hispanic, Omnivore, Vegan, Vegetarian, GlutenFree } = data;
@@ -36,6 +40,7 @@ const AddUser = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
+          setRedirect(true);
           formRef.reset();
         }
       },
