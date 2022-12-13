@@ -76,3 +76,8 @@ h3 {
 .landing-img {
   height: 100px;
 }
+
+#vendors-link {
+  text-decoration: none;
+  color: white;
+}

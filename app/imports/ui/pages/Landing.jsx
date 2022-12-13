@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Image, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
@@ -8,7 +9,7 @@ const Landing = () => (
       <Container className="px-4">
         <h1>Manoa Eateries</h1>
         <p>Manoa Eateries gives students the opportunity to see what is available to eat on campus. Users can view various food options based on their preferences, and vendors can update their menu items and operating hours.</p>
-        <h3 className="pt-3">Participating Vendors</h3>
+        <Link className="pt-3" id="vendors-link" to="/listVendors"><h3>Participating Vendors</h3></Link>
         <Row className="p-3">
           <Col><Image className="landing-img pb-3" src="https://1000logos.net/wp-content/uploads/2017/08/Dunkin-Donuts-Logo.png" /> </Col>
           <Col><Image className="landing-img pb-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/L%26L_Hawaiian_Barbecue_logo.svg/1042px-L%26L_Hawaiian_Barbecue_logo.svg.png" /> </Col>
