@@ -70,7 +70,7 @@ h3 {
   font-weight: bold !important;
 }
 
-#login-dropdown, #account, #list-vendors-nav {
+#login-dropdown, #account, #list-vendors-nav, #user-home-nav {
   color: white;
 }
 
