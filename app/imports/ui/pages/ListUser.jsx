@@ -28,7 +28,7 @@ const ListUser = () => {
       <Row className="justify-content-center">
         <Col md={12}>
           <Col className="text-center">
-            <h2>Profile Info</h2>
+            <h2>My Preferences</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
