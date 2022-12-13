@@ -24,9 +24,16 @@ Meteor.publish(Vendors.userPublicationName, function () {
   return Vendors.collection.find();
 });
 
-Meteor.publish(UserProfiles.userPublicationName, function () {
-  return UserProfiles.collection.find();
-});
+Meteor.publish(
+  UserProfiles.userPublicationName,
+  function () {
+    if (this.userId) {
+      const username = Meteor.users.findOne(this.userId).username;
+      return UserProfiles.collection.find({ owner: username });
+    }
+    return this.ready();
+  },
+);
 
 Meteor.publish(UserDiets.userPublicationName, function () {
   return UserDiets.collection.find();
