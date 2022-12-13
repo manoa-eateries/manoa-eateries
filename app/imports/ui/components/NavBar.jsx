@@ -27,7 +27,7 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-start">
             {currentUser ? (
               <Nav.Link id="user-home-nav" as={NavLink} to="/userHome" key="user-home">
-                I`m Hungry!
+                Open Now!
               </Nav.Link>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
