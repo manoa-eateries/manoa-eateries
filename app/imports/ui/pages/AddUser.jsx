@@ -5,8 +5,8 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { UserProfiles } from '../../api/user/userProfile';
 import { Navigate } from 'react-router-dom';
+import { UserProfiles } from '../../api/user/userProfile';
 
 const formSchema = new SimpleSchema({
   Asian: Boolean,
