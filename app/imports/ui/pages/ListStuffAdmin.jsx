@@ -1,42 +1,82 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table } from 'react-bootstrap';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItemAdmin from '../components/StuffItemAdmin';
+import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { VendorProfiles } from '../../api/vendor/vendorProfile';
+import { UserProfiles } from '../../api/user/userProfile';
+import VendorItem from '../components/VendorItem';
+import User from '../components/User';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
+/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListStuffAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { stuffs, ready } = useTracker(() => {
+  const { ready, vendors, users } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.adminPublicationName);
+    const subscription = Meteor.subscribe(VendorProfiles.adminPublicationName);
+    const subscription2 = Meteor.subscribe(UserProfiles.adminPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the Stuff documents
-    const items = Stuffs.collection.find({}).fetch();
+    const vendorItems = VendorProfiles.collection.find({}).fetch();
+    const UserItems = UserProfiles.collection.find({}).fetch();
     return {
-      stuffs: items,
+      users: UserItems,
+      vendors: vendorItems,
       ready: rdy,
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="list-vendor-profiles-page">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center"><h2>List Stuff (Admin)</h2></Col>
+          <Col className="text-center">
+            <h2>Vendor Profiles</h2>
+          </Col>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Vendor Name</th>
+                <th>Logo</th>
+                <th>Open Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              {vendors.map((vendor) => <VendorItem key={vendor._id} vendor={vendor} />)}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+      <Row className="justify-content-center">
+        <Col md={12}>
+          <Col className="text-center">
+            <h2>Profile Info</h2>
+          </Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Owner</th>
+                <th colSpan="5">Ethnicity</th>
+                <th colSpan="4">Diet</th>
+              </tr>
+              <tr>
+                <th> </th>
+                <th>Asian</th>
+                <th>American</th>
+                <th>European</th>
+                <th>Hawaiian</th>
+                <th>Hispanic</th>
+                <th>Omnivore</th>
+                <th>Vegan</th>
+                <th>Vegetarian</th>
+                <th>Gluten Free</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
+              {users.map((user) => <User key={user._id} user={user} />)}
             </tbody>
           </Table>
         </Col>

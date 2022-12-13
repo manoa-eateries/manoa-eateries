@@ -49,6 +49,10 @@ Meteor.publish(VendorProfiles.adminPublicationName, function () {
   return VendorProfiles.collection.find();
 });
 
+Meteor.publish(UserProfiles.adminPublicationName, function () {
+  return UserProfiles.collection.find();
+});
+
 Meteor.publish(Vendors.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Vendors.collection.find();
