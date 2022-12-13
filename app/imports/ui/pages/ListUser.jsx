@@ -24,7 +24,7 @@ const ListUser = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3" id="list-profile-page">
+    <Container className="py-3" id="list-user-page">
       <Row className="justify-content-center">
         <Col md={12}>
           <Col className="text-center">

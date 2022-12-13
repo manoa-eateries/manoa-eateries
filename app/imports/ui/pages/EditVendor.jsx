@@ -39,7 +39,7 @@ const EditVendor = () => {
       swal('Success', 'Item updated successfully', 'success')));
   };
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="#edit-vendor-page">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit Stuff</h2></Col>

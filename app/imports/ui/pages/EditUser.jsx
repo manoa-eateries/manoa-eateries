@@ -40,7 +40,7 @@ const EditUser = () => {
   };
 
   return ready ? (
-    <Container className="py-3" id="edit-profile-page">
+    <Container className="py-3" id="edit-user-page">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit User</h2></Col>

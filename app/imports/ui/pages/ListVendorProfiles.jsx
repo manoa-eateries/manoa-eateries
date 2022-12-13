@@ -24,7 +24,7 @@ const ListVendorProfiles = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="list-vendor-profiles-page">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
