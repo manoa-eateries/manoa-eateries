@@ -2,7 +2,9 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email":  "dunkin", "password": "changeme", "role":  "vendor" }
+    { "email":  "dunkin", "password": "changeme", "role":  "vendor" },
+    { "email":  "panda", "password": "changeme", "role":  "vendor" },
+    { "email":  "starbucks", "password": "changeme", "role":  "vendor" }
   ],
 
   "defaultData": [

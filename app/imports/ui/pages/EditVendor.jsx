@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, BoolField, SubmitField, TextField, DateField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, BoolField, SubmitField, TextField, NumField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -42,14 +42,14 @@ const EditVendor = () => {
     <Container className="py-3" id="#edit-vendor-page">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Stuff</h2></Col>
+          <Col className="text-center"><h2>Edit Vendor Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
                 <TextField name="vendorName" />
                 <LongTextField name="logo" />
-                <DateField name="openHour" />
-                <DateField name="closeHour" />
+                <NumField name="openHour" />
+                <NumField name="closeHour" />
                 <TextField name="weekdaysOpen" />
                 <TextField name="location" />
                 <h4>Preferences</h4>
