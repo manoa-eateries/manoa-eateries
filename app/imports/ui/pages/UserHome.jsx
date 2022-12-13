@@ -26,14 +26,14 @@ const UserHome = () => {
   }, []);
   let now = new Date();
   now = now.getHours();
-  const selectVendors = _.filter(vendors, function (vendor) { return now > vendor.openHour && now < vendor.closeHour; });
-  console.log(`todays date is ${now}`);
+  let selectVendors = _.filter(vendors, function (vendor) { return now > vendor.openHour && now < vendor.closeHour; });
+  selectVendors = _.sample(selectVendors, 3);
   return (ready ? (
     <Container className="py-3" id="list-vendors-page">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>Open Now</h2>
+            <h2>Your Top Picks</h2>
           </Col>
           <Row>
             {selectVendors.map((vendor) => (<Col key={vendor._id}><VendorCard vendor={vendor} /></Col>))}
