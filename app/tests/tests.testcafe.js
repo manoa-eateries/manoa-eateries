@@ -14,7 +14,7 @@ import { signupPage } from './signup.page';
 const userCredentials = { username: 'john@foo.com', password: 'changeme' };
 const vendorCredentials = { username: 'dunkin', password: 'changeme' };
 const userSignUp = { username: 'test', password: 'test' };
-const adminCredentials = { username: 'admin@foo.com', password: 'changeme'};
+const adminCredentials = { username: 'admin@foo.com', password: 'changeme' };
 
 fixture('meteor-react-bootstrap-template localhost test with default db')
   .page('http://localhost:3000');

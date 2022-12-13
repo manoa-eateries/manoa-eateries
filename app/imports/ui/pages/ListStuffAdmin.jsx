@@ -5,8 +5,8 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { VendorProfiles } from '../../api/vendor/vendorProfile';
 import { UserProfiles } from '../../api/user/userProfile';
-import VendorItem from '../components/VendorItem';
-import User from '../components/User';
+import VendorItemAdmin from '../components/VendorItemAdmin';
+import UserAdmin from '../components/UserAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListStuffAdmin = () => {
@@ -44,7 +44,7 @@ const ListStuffAdmin = () => {
               </tr>
             </thead>
             <tbody>
-              {vendors.map((vendor) => <VendorItem key={vendor._id} vendor={vendor} />)}
+              {vendors.map((vendor) => <VendorItemAdmin key={vendor._id} vendor={vendor} />)}
             </tbody>
           </Table>
         </Col>
@@ -76,7 +76,7 @@ const ListStuffAdmin = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => <User key={user._id} user={user} />)}
+              {users.map((user) => <UserAdmin key={user._id} user={user} />)}
             </tbody>
           </Table>
         </Col>
