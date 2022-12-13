@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { VendorProfiles } from '../../api/vendor/vendorProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -38,7 +39,7 @@ const EditVendor = () => {
       swal('Success', 'Item updated successfully', 'success')));
   };
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="#edit-vendor-page">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit Stuff</h2></Col>
@@ -73,6 +74,9 @@ const EditVendor = () => {
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>
+              <Card.Footer>
+                <Link to="/vendorprofiles">Back to Profile Info</Link>
+              </Card.Footer>
             </Card>
           </AutoForm>
         </Col>

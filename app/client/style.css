@@ -31,6 +31,7 @@ body {
 .footer {
   background-color: rgb(1, 76, 47);
   color: white;
+  font-family: 'Alice', serif;
 }
 
 #footer-link {
@@ -40,7 +41,7 @@ body {
 #landing-page {
   background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("https://manoa.hawaii.edu/dps/wp-content/uploads/sites/27/2020/03/EastWestRd.jpg") center;
   background-size: cover;
-  height: 500px;
+  font-size: medium;
 }
 
 #landing-text {
@@ -71,4 +72,23 @@ h3 {
 
 #login-dropdown, #account, #list-vendors-nav {
   color: white;
+}
+
+.landing-img {
+  height: 100px;
+}
+
+#vendors-link {
+  text-decoration: none;
+  color: white;
+}
+
+#btn-signin, #btn-signup {
+  font-family: 'Alice', serif;
+  background-color: #014C2F;
+  border-color: #014C2F;
+}
+
+#basic-navbar-nav, #signin-page, #signup-page, #signout-page, #edit-user-page, #add-user-page, #list-user-page, #add-vendor-page, #edit-vendor-page, #list-vendor-profiles-page, #list-vendors-page {
+  font-family: 'Alice', serif;
 }

@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { UserProfiles } from '../../api/user/userProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -39,7 +40,7 @@ const EditUser = () => {
   };
 
   return ready ? (
-    <Container className="py-3" id="edit-profile-page">
+    <Container className="py-3" id="edit-user-page">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit User</h2></Col>
@@ -66,8 +67,12 @@ const EditUser = () => {
                 </Row>
                 <SubmitField id="submit" />
                 <ErrorsField />
+                <HiddenField name="name" />
                 <HiddenField name="owner" />
               </Card.Body>
+              <Card.Footer>
+                <Link to="/listUser">Back to Profile Info</Link>
+              </Card.Footer>
             </Card>
           </AutoForm>
         </Col>

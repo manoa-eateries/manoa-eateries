@@ -20,7 +20,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors">List All Vendors</Nav.Link>
+            <Nav.Link id="list-vendors-nav" as={NavLink} to="/listVendors" key="list-vendors"> View All Vendors</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
@@ -56,16 +56,17 @@ const NavBar = () => {
                   <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
                     Profile
                   </NavDropdown.Item>
-                ) : (
-                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
-                    Profile
-                  </NavDropdown.Item>
+                ) : (''
                 )}
                 {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
                   <NavDropdown.Item id="profile" as={NavLink} to="/vendorprofiles">
-                    Profile
+                    Vendor Profile
                   </NavDropdown.Item>
-                ) : ''}
+                ) : (
+                  <NavDropdown.Item id="profile" as={NavLink} to="/listUser">
+                    User Profile
+                  </NavDropdown.Item>
+                )}
                 <NavDropdown.Item id="signout" as={NavLink} to="/signout">
                   Sign
                   out
