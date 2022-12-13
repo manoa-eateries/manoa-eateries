@@ -92,3 +92,8 @@ h3 {
 #basic-navbar-nav, #signin-page, #signup-page, #signout-page, #edit-user-page, #add-user-page, #list-user-page, #add-vendor-page, #edit-vendor-page, #list-vendor-profiles-page, #list-vendors-page {
   font-family: 'Alice', serif;
 }
+
+#list-admin {
+  color: white;
+  padding-left: 50px;
+}

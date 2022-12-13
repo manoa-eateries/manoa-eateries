@@ -56,7 +56,7 @@ const EditVendor = () => {
                 <Row>
                   <Col>
                     <h6>Ethnicity</h6>
-                    <BoolField name="Asian" />
+                    <BoolField name="Asian" id="asian" />
                     <BoolField name="American" />
                     <BoolField name="European" />
                     <BoolField name="Hawaiian" />
@@ -70,7 +70,7 @@ const EditVendor = () => {
                     <BoolField name="GlutenFree" />
                   </Col>
                 </Row>
-                <SubmitField name="Submit" />
+                <SubmitField name="Submit" id="submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>

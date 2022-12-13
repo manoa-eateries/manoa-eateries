@@ -46,10 +46,10 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField name="username" placeholder="Username" />
-                <TextField name="password" placeholder="Password" type="password" />
+                <TextField id="signup-form-email" name="username" placeholder="Username" />
+                <TextField id="signup-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="submit" />
               </Card.Body>
             </Card>
           </AutoForm>
